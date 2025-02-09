@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Clock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .time-card {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .city {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .time {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        #nyc .time { color: #E74C3C; }
+        #london .time { color: #3498DB; }
+        #dubai .time { color: #F1C40F; }
+        #mumbai .time { color: #27AE60; }
+        #sydney .time { color: #9B59B6; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="nyc" class="time-card">
+            <div class="city">New York</div>
+            <div class="time"></div>
+        </div>
+        <div id="london" class="time-card">
+            <div class="city">London</div>
+            <div class="time"></div>
+        </div>
+        <div id="dubai" class="time-card">
+            <div class="city">Dubai</div>
+            <div class="time"></div>
+        </div>
+        <div id="mumbai" class="time-card">
+            <div class="city">Mumbai</div>
+            <div class="time"></div>
+        </div>
+        <div id="sydney" class="time-card">
+            <div class="city">Sydney</div>
+            <div class="time"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
