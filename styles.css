@@ -1,0 +1,16 @@
+.city-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.time-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timezone {
+  color: #666;
+  font-size: 0.9em;
+} 

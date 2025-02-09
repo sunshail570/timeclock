@@ -55,42 +55,84 @@
         #dubai .time { color: #F1C40F; }
         #mumbai .time { color: #27AE60; }
         #sydney .time { color: #9B59B6; }
+
+        .city-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .time-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timezone {
+            color: #666;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div id="nyc" class="time-card">
             <div class="time-info">
-                <div class="city">New York</div>
-                <div class="time"></div>
+                <div class="city">
+                    <h2 class="city-title">New York</h2>
+                    <div class="time-info">
+                        <span class="time"></span>
+                        <span class="timezone">(EDT)</span>
+                    </div>
+                </div>
             </div>
             <div class="map"></div>
         </div>
         <div id="london" class="time-card">
             <div class="time-info">
-                <div class="city">London</div>
-                <div class="time"></div>
+                <div class="city">
+                    <h2 class="city-title">London</h2>
+                    <div class="time-info">
+                        <span class="time"></span>
+                        <span class="timezone">(BST)</span>
+                    </div>
+                </div>
             </div>
             <div class="map"></div>
         </div>
         <div id="dubai" class="time-card">
             <div class="time-info">
-                <div class="city">Dubai</div>
-                <div class="time"></div>
+                <div class="city">
+                    <h2 class="city-title">Dubai</h2>
+                    <div class="time-info">
+                        <span class="time"></span>
+                        <span class="timezone">(GST)</span>
+                    </div>
+                </div>
             </div>
             <div class="map"></div>
         </div>
         <div id="mumbai" class="time-card">
             <div class="time-info">
-                <div class="city">Mumbai</div>
-                <div class="time"></div>
+                <div class="city">
+                    <h2 class="city-title">Mumbai</h2>
+                    <div class="time-info">
+                        <span class="time"></span>
+                        <span class="timezone">(IST)</span>
+                    </div>
+                </div>
             </div>
             <div class="map"></div>
         </div>
         <div id="sydney" class="time-card">
             <div class="time-info">
-                <div class="city">Sydney</div>
-                <div class="time"></div>
+                <div class="city">
+                    <h2 class="city-title">Sydney</h2>
+                    <div class="time-info">
+                        <span class="time"></span>
+                        <span class="timezone">(AEST)</span>
+                    </div>
+                </div>
             </div>
             <div class="map"></div>
         </div>
