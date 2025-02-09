@@ -24,13 +24,16 @@
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
-            min-height: 400px;
+            min-height: 200px;
+            flex-direction: column;
         }
 
         .time-info {
             flex: 1;
+            width: 100%;
+            margin-bottom: 20px;
         }
 
         .city {
@@ -44,10 +47,15 @@
         }
 
         .map {
-            flex: 0 0 auto;
-            margin-left: 20px;
-            width: 600px;
-            height: 400px;
+            width: 100%;
+            height: 300px;
+            margin-left: 0;
+        }
+
+        .map iframe {
+            width: 100% !important;
+            height: 300px !important;
+            border-radius: 5px;
         }
 
         #nyc .time { color: #E74C3C; }
@@ -114,16 +122,107 @@
         }
 
         .add-contact-btn {
-            background: #f8f9fa;
-            border: 1px solid #ddd;
-            padding: 5px 10px;
+            background-color: #2196F3;  /* Material Blue */
+            color: white;
+            border: none;
+            padding: 8px 16px;
             border-radius: 4px;
             cursor: pointer;
             margin-top: 0.5rem;
+            font-family: 'Roboto', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.0892857143em;
+            font-weight: 500;
+            box-shadow: 0 3px 1px -2px rgba(0,0,0,0.2), 
+                        0 2px 2px 0 rgba(0,0,0,0.14), 
+                        0 1px 5px 0 rgba(0,0,0,0.12);
+            transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+                        background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
         .add-contact-btn:hover {
-            background: #e9ecef;
+            background-color: #1976D2;  /* Darker blue on hover */
+            box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2), 
+                        0 4px 5px 0 rgba(0,0,0,0.14), 
+                        0 1px 10px 0 rgba(0,0,0,0.12);
+        }
+
+        .add-contact-btn:active {
+            box-shadow: 0 5px 5px -3px rgba(0,0,0,0.2), 
+                        0 8px 10px 1px rgba(0,0,0,0.14), 
+                        0 3px 14px 2px rgba(0,0,0,0.12);
+        }
+
+        /* Add Roboto font for Material Design */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+        /* Add ripple effect styles */
+        .add-contact-btn .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Adjust button size for mobile */
+        @media (max-width: 767px) {
+            .add-contact-btn {
+                width: 100%;  /* Full width on mobile */
+                padding: 12px 16px;  /* Slightly taller on mobile for better touch target */
+            }
+        }
+
+        /* Media query for tablets and larger screens */
+        @media (min-width: 768px) {
+            .time-card {
+                flex-direction: row;
+                align-items: center;
+                min-height: 400px;
+            }
+
+            .time-info {
+                width: auto;
+                margin-bottom: 0;
+            }
+
+            .map {
+                flex: 0 0 auto;
+                width: 600px;
+                height: 400px;
+                margin-left: 20px;
+            }
+
+            .map iframe {
+                width: 600px !important;
+                height: 400px !important;
+            }
+        }
+
+        /* Adjust container padding for mobile */
+        @media (max-width: 767px) {
+            .container {
+                padding: 10px;
+            }
+
+            .time {
+                font-size: 1.5em;
+            }
+
+            .city-title {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -138,7 +237,9 @@
                         <span class="timezone">(EDT)</span>
                     </div>
                     <div class="contact-name" id="nyc-contact"></div>
-                    <button class="add-contact-btn" onclick="addContact('nyc')">Add Contact</button>
+                    <button class="add-contact-btn" onclick="addContact('nyc')">
+                        Add Contact
+                    </button>
                 </div>
             </div>
             <div class="map"></div>
@@ -152,7 +253,9 @@
                         <span class="timezone">(BST)</span>
                     </div>
                     <div class="contact-name" id="london-contact"></div>
-                    <button class="add-contact-btn" onclick="addContact('london')">Add Contact</button>
+                    <button class="add-contact-btn" onclick="addContact('london')">
+                        Add Contact
+                    </button>
                 </div>
             </div>
             <div class="map"></div>
@@ -166,7 +269,9 @@
                         <span class="timezone">(GST)</span>
                     </div>
                     <div class="contact-name" id="dubai-contact"></div>
-                    <button class="add-contact-btn" onclick="addContact('dubai')">Add Contact</button>
+                    <button class="add-contact-btn" onclick="addContact('dubai')">
+                        Add Contact
+                    </button>
                 </div>
             </div>
             <div class="map"></div>
@@ -180,7 +285,9 @@
                         <span class="timezone">(IST)</span>
                     </div>
                     <div class="contact-name" id="mumbai-contact"></div>
-                    <button class="add-contact-btn" onclick="addContact('mumbai')">Add Contact</button>
+                    <button class="add-contact-btn" onclick="addContact('mumbai')">
+                        Add Contact
+                    </button>
                 </div>
             </div>
             <div class="map"></div>
@@ -194,7 +301,9 @@
                         <span class="timezone">(AEST)</span>
                     </div>
                     <div class="contact-name" id="sydney-contact"></div>
-                    <button class="add-contact-btn" onclick="addContact('sydney')">Add Contact</button>
+                    <button class="add-contact-btn" onclick="addContact('sydney')">
+                        Add Contact
+                    </button>
                 </div>
             </div>
             <div class="map"></div>
