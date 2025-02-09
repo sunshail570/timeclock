@@ -71,26 +71,48 @@ function updateTimes() {
 function addContact(cityId) {
     const name = prompt("Enter the name of your contact in this city:");
     if (name) {
-        // Save to localStorage
-        localStorage.setItem(`${cityId}-contact`, name);
+        // Get existing contacts array or create new one
+        const contacts = JSON.parse(localStorage.getItem(`${cityId}-contacts`) || '[]');
+        contacts.push(name);
+        // Save updated contacts array
+        localStorage.setItem(`${cityId}-contacts`, JSON.stringify(contacts));
         // Update display
-        displayContact(cityId, name);
+        displayContacts(cityId, contacts);
     }
 }
 
-function displayContact(cityId, name) {
+function displayContacts(cityId, contacts) {
     const contactElement = document.getElementById(`${cityId}-contact`);
-    contactElement.textContent = `Contact: ${name}`;
+    if (contacts.length === 0) {
+        contactElement.innerHTML = '';
+        return;
+    }
+    
+    const contactsList = contacts.map(name => `
+        <div class="contact-item">
+            ${name}
+            <button class="remove-contact-btn" onclick="removeContact('${cityId}', '${name}')">×</button>
+        </div>
+    `).join('');
+    
+    contactElement.innerHTML = `
+        <div class="contacts-header">Contacts:</div>
+        <div class="contacts-list">${contactsList}</div>
+    `;
 }
 
-// Function to load saved contacts when page loads
+function removeContact(cityId, nameToRemove) {
+    const contacts = JSON.parse(localStorage.getItem(`${cityId}-contacts`) || '[]');
+    const updatedContacts = contacts.filter(name => name !== nameToRemove);
+    localStorage.setItem(`${cityId}-contacts`, JSON.stringify(updatedContacts));
+    displayContacts(cityId, updatedContacts);
+}
+
 function loadSavedContacts() {
     const cities = ['nyc', 'london', 'dubai', 'mumbai', 'sydney'];
     cities.forEach(cityId => {
-        const savedContact = localStorage.getItem(`${cityId}-contact`);
-        if (savedContact) {
-            displayContact(cityId, savedContact);
-        }
+        const savedContacts = JSON.parse(localStorage.getItem(`${cityId}-contacts`) || '[]');
+        displayContacts(cityId, savedContacts);
     });
 }
 
