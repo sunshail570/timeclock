@@ -52,19 +52,23 @@ function updateTimes() {
             hour12: true
         });
         
-        const dateStr = date.toLocaleDateString('en-US', {
+        // Format date consistently for all cities
+        const dateOptions = {
             timeZone: timezone,
-            month: 'long',
+            weekday: 'short',
+            month: 'short',
             day: 'numeric',
             year: 'numeric'
-        });
+        };
+        
+        const dateObj = new Date(date.toLocaleString('en-US', { timeZone: timezone }));
+        const dateStr = dateObj.toLocaleDateString('en-US', dateOptions);
 
         const timeElement = document.querySelector(`#${cityId} .time`);
-        timeElement.innerHTML = cityId === 'nyc' ? 
-            `<span style="color: purple">${time}</span><br><span style="color: purple; font-size: 0.5em">${dateStr}</span>` :
-            cityId === 'london' ?
-            `<span style="color: #FF8C00">${time}</span><br><span style="color: #FF8C00; font-size: 0.5em">${dateStr}</span>` :
-            `${time}<br><span style="font-size: 0.5em">${dateStr}</span>`;
+        const dateElement = document.querySelector(`#${cityId} .date`);
+        
+        timeElement.textContent = time;
+        dateElement.textContent = dateStr;
     }
 }
 

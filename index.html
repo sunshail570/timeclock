@@ -41,9 +41,36 @@
             margin-bottom: 5px;
         }
 
+        .time-display {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .time-and-date {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
         .time {
             font-size: 2em;
             font-weight: bold;
+            line-height: 1;
+        }
+
+        .timezone {
+            font-size: 1em;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .date {
+            font-size: 0.9em;
+            font-weight: 500;
+            opacity: 0.75;
+            letter-spacing: 0.02em;
+            padding-left: 2px;
         }
 
         .map {
@@ -58,11 +85,11 @@
             border-radius: 5px;
         }
 
-        #nyc .time { color: #E74C3C; }
-        #london .time { color: #3498DB; }
-        #dubai .time { color: #F1C40F; }
-        #mumbai .time { color: #27AE60; }
-        #sydney .time { color: #9B59B6; }
+        #nyc .time, #nyc .timezone, #nyc .date { color: purple; }
+        #london .time, #london .timezone, #london .date { color: #FF8C00; }
+        #dubai .time, #dubai .timezone, #dubai .date { color: #F1C40F; }
+        #mumbai .time, #mumbai .timezone, #mumbai .date { color: #27AE60; }
+        #sydney .time, #sydney .timezone, #sydney .date { color: #9B59B6; }
 
         .city-title {
             font-size: 1.8rem;
@@ -72,13 +99,8 @@
 
         .time-info {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 0.5rem;
-        }
-
-        .timezone {
-            color: #666;
-            font-size: 0.9em;
         }
 
         .contact-name {
@@ -182,6 +204,18 @@
                 width: 100%;  /* Full width on mobile */
                 padding: 12px 16px;  /* Slightly taller on mobile for better touch target */
             }
+
+            .time {
+                font-size: 1.5em;
+            }
+            
+            .timezone {
+                font-size: 0.9em;
+            }
+
+            .date {
+                font-size: 0.85em;
+            }
         }
 
         /* Media query for tablets and larger screens */
@@ -216,10 +250,6 @@
                 padding: 10px;
             }
 
-            .time {
-                font-size: 1.5em;
-            }
-
             .city-title {
                 font-size: 1.5rem;
             }
@@ -232,10 +262,11 @@
             <div class="time-info">
                 <div class="city">
                     <h2 class="city-title">New York</h2>
-                    <div class="time-info">
+                    <div class="time-display">
                         <span class="time"></span>
                         <span class="timezone">(EDT)</span>
                     </div>
+                    <div class="date"></div>
                     <div class="contact-name" id="nyc-contact"></div>
                     <button class="add-contact-btn" onclick="addContact('nyc')">
                         Add Contact
@@ -248,10 +279,11 @@
             <div class="time-info">
                 <div class="city">
                     <h2 class="city-title">London</h2>
-                    <div class="time-info">
+                    <div class="time-display">
                         <span class="time"></span>
                         <span class="timezone">(BST)</span>
                     </div>
+                    <div class="date"></div>
                     <div class="contact-name" id="london-contact"></div>
                     <button class="add-contact-btn" onclick="addContact('london')">
                         Add Contact
@@ -264,10 +296,11 @@
             <div class="time-info">
                 <div class="city">
                     <h2 class="city-title">Dubai</h2>
-                    <div class="time-info">
+                    <div class="time-display">
                         <span class="time"></span>
                         <span class="timezone">(GST)</span>
                     </div>
+                    <div class="date"></div>
                     <div class="contact-name" id="dubai-contact"></div>
                     <button class="add-contact-btn" onclick="addContact('dubai')">
                         Add Contact
@@ -280,10 +313,11 @@
             <div class="time-info">
                 <div class="city">
                     <h2 class="city-title">Mumbai</h2>
-                    <div class="time-info">
+                    <div class="time-display">
                         <span class="time"></span>
                         <span class="timezone">(IST)</span>
                     </div>
+                    <div class="date"></div>
                     <div class="contact-name" id="mumbai-contact"></div>
                     <button class="add-contact-btn" onclick="addContact('mumbai')">
                         Add Contact
@@ -296,10 +330,11 @@
             <div class="time-info">
                 <div class="city">
                     <h2 class="city-title">Sydney</h2>
-                    <div class="time-info">
+                    <div class="time-display">
                         <span class="time"></span>
                         <span class="timezone">(AEST)</span>
                     </div>
+                    <div class="date"></div>
                     <div class="contact-name" id="sydney-contact"></div>
                     <button class="add-contact-btn" onclick="addContact('sydney')">
                         Add Contact
