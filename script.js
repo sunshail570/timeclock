@@ -25,7 +25,11 @@ function updateTimes() {
         });
 
         const timeElement = document.querySelector(`#${cityId} .time`);
-        timeElement.innerHTML = `${time}<br><span style="font-size: 0.5em">${dateStr}</span>`;
+        timeElement.innerHTML = cityId === 'nyc' ? 
+            `<span style="color: purple">${time}</span><br><span style="color: purple; font-size: 0.5em">${dateStr}</span>` :
+            cityId === 'london' ?
+            `<span style="color: #FF8C00">${time}</span><br><span style="color: #FF8C00; font-size: 0.5em">${dateStr}</span>` :
+            `${time}<br><span style="font-size: 0.5em">${dateStr}</span>`;
     }
 }
 
