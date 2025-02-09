@@ -68,9 +68,41 @@ function updateTimes() {
     }
 }
 
+function addContact(cityId) {
+    const name = prompt("Enter the name of your contact in this city:");
+    if (name) {
+        // Save to localStorage
+        localStorage.setItem(`${cityId}-contact`, name);
+        // Update display
+        displayContact(cityId, name);
+    }
+}
+
+function displayContact(cityId, name) {
+    const contactElement = document.getElementById(`${cityId}-contact`);
+    contactElement.textContent = `Contact: ${name}`;
+}
+
+// Function to load saved contacts when page loads
+function loadSavedContacts() {
+    const cities = ['nyc', 'london', 'dubai', 'mumbai', 'sydney'];
+    cities.forEach(cityId => {
+        const savedContact = localStorage.getItem(`${cityId}-contact`);
+        if (savedContact) {
+            displayContact(cityId, savedContact);
+        }
+    });
+}
+
 // Initialize maps once
 initializeMaps();
 
 // Update times immediately and then every second
 updateTimes();
-setInterval(updateTimes, 1000); 
+setInterval(updateTimes, 1000);
+
+// Add this to your existing window.onload or document.addEventListener('DOMContentLoaded', ...)
+document.addEventListener('DOMContentLoaded', function() {
+    loadSavedContacts();
+    // ... your existing initialization code ...
+}); 

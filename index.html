@@ -72,6 +72,25 @@
             color: #666;
             font-size: 0.9em;
         }
+
+        .contact-name {
+            color: darkgreen;
+            margin-top: 0.5rem;
+            font-size: 1.1em;
+        }
+
+        .add-contact-btn {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+
+        .add-contact-btn:hover {
+            background: #e9ecef;
+        }
     </style>
 </head>
 <body>
@@ -84,6 +103,8 @@
                         <span class="time"></span>
                         <span class="timezone">(EDT)</span>
                     </div>
+                    <div class="contact-name" id="nyc-contact"></div>
+                    <button class="add-contact-btn" onclick="addContact('nyc')">Add Contact</button>
                 </div>
             </div>
             <div class="map"></div>
@@ -96,6 +117,8 @@
                         <span class="time"></span>
                         <span class="timezone">(BST)</span>
                     </div>
+                    <div class="contact-name" id="london-contact"></div>
+                    <button class="add-contact-btn" onclick="addContact('london')">Add Contact</button>
                 </div>
             </div>
             <div class="map"></div>
@@ -108,6 +131,8 @@
                         <span class="time"></span>
                         <span class="timezone">(GST)</span>
                     </div>
+                    <div class="contact-name" id="dubai-contact"></div>
+                    <button class="add-contact-btn" onclick="addContact('dubai')">Add Contact</button>
                 </div>
             </div>
             <div class="map"></div>
@@ -120,6 +145,8 @@
                         <span class="time"></span>
                         <span class="timezone">(IST)</span>
                     </div>
+                    <div class="contact-name" id="mumbai-contact"></div>
+                    <button class="add-contact-btn" onclick="addContact('mumbai')">Add Contact</button>
                 </div>
             </div>
             <div class="map"></div>
@@ -132,6 +159,8 @@
                         <span class="time"></span>
                         <span class="timezone">(AEST)</span>
                     </div>
+                    <div class="contact-name" id="sydney-contact"></div>
+                    <button class="add-contact-btn" onclick="addContact('sydney')">Add Contact</button>
                 </div>
             </div>
             <div class="map"></div>
